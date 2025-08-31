@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div class="navbar">
+    <ul>
+      <li><a href="index.html">Menu</a></li>
+      <li><a href="skill.html">Skill</a></li>
+      <li><a href="time.html">Timer Podo</a></li>
+    </ul>
+  </div>
+
+
+  <div class="skills-header">
+    <h1>Time Pomodoro</h1>
+    <p class="desc">"Podomoro timer" adalah alat yang digunakan untuk menerapkan Teknik Pomodoro, 
+
+sebuah metode manajemen waktu yang dikembangkan oleh Francesco Cirillo pada akhir tahun 1980-an.</p>
+  </div>
+
+  <div class="card">
+    <h2 id="timer">25:00</h2>
+    <p id="mode">Mode kerja</p>
+
+    <div class="btn-row">
+       <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button>
+    </div>
+
+        <div class="btn-row">
+      <button onclick="setWorkMode()">Kerja</button>
+      <button onclick="setBreakMode()">Istirahat</button>
+        </div>
+  </div>
+  
+  <script>
+let timer;               
+let timeLeft = 25 * 60;  // default nyaa 25 menit
+let isRunning = false;   // cek apakah timer lagi jalan ga
+
+function updateDisplay() {
+  let menit = Math.floor(timeLeft / 60);  // hitung menit
+  let detik = timeLeft % 60;              // hitung detik
+  document.getElementById("timer").innerText =
+    (menit < 10 ? "0" : "") + menit + ":" + (detik < 10 ? "0" : "") + detik;
+}
+
+function startTimer() {
+  if (!isRunning) {
+    isRunning = true;
+    timer = setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;        // kurangi 1 detik
+        updateDisplay();   // tampilkan lagi
+      } else {
+        clearInterval(timer);
+        isRunning = false;
+        alert("Waktu habis!");
+      }
+    }, 1000); // jalan setiap 1 detik
+  }
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  isRunning = false;
+  timeLeft = 25 * 60; // balik ke 25 menit lagi
+  updateDisplay();
+}
+
+function setWorkMode() {
+  clearInterval(timer);
+  isRunning = false;
+  timeLeft = 25 * 60;
+  document.getElementById("mode").innerText = "Mode: Kerja";
+  updateDisplay();
+}
+
+function setBreakMode() {
+  clearInterval(timer);
+  isRunning = false;
+  timeLeft = 5 * 60;
+  document.getElementById("mode").innerText = "Mode: Istirahat";
+  updateDisplay();
+}
+
+
+updateDisplay();
+</script>
+
+</body>
+</html>
