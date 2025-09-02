@@ -284,3 +284,113 @@ button {
 button:hover {
   background: #3E3F29;
 }
+/* RESPONSIVE DESIGN */
+
+/* Tablet (max 1024px) */
+@media (max-width: 1024px) {
+  .navbar ul li {
+    margin-left: 100px; /* biar gak terlalu jauh */
+  }
+
+  .foto img {
+    width: 300px;
+  }
+
+  .skill-card {
+    width: 80%;
+  }
+
+  .video-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* HP (max 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul li {
+    margin-left: 0;
+  }
+
+  .nama {
+    font-size: 24px;
+    margin-top: 120px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .foto img {
+    width: 250px;
+  }
+
+  .kanan {
+    width: 100%;
+  }
+
+  .video-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .skill-card {
+    width: 90%;
+    height: auto; /* biar gak terlalu tinggi di hp */
+  }
+
+  .card {
+    padding: 30px;
+    width: 90%;
+  }
+
+  #timer {
+    font-size: 2rem;
+  }
+}
+
+/* HP kecil banget (max 480px) */
+@media (max-width: 480px) {
+  .nama {
+    font-size: 20px;
+  }
+
+  .foto img {
+    width: 180px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
