@@ -318,10 +318,18 @@ button:hover {
     padding: 10px;
   }
 
+@media (max-width: 768px) {
   .navbar ul {
-    flex-direction: column;
+    flex-direction: row; /* tetap kesamping */
     gap: 10px;
+    flex-wrap: wrap;     /* biar kalau kepanjangan turun ke bawah */
   }
+
+  .navbar ul li {
+    margin-left: 10px;
+  }
+}
+
 
   .navbar ul li {
     margin-left: 0;
